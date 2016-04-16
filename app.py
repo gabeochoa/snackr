@@ -20,7 +20,9 @@ def add(jason, database = mongoconn.openDB()):
 def inventory(database = mongoconn.openDB()):
     if( not loggedin ):
         return "please log in"
-    return render_template('inventory.html', inv = mongoconn.getAll(database))
+    inv = mongoconn.getAll(database)
+    print(inv)
+    return render_template('inventory.html', inv = inv)
 
 if __name__ == '__main__':
     app.run(debug=True)
