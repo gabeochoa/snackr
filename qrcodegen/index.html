@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title> Code Builder </title>
+    <script src="qrgen.js"></script>
+    </head>
+    <body>
+        <p id="itemlisttitle">Store Inventory</p>
+        <form>
+            Item name:<br>
+            <input type="text" id="itemname">
+            <br>
+            Date of purchase:<br>
+            <input type="date" id="dateofpurchase">
+            <br>
+            Expiration:<br>
+            <input type="date" id="dateofexpiration">
+            <br>
+            Quantity:<br>
+            <input type="number" id="quantity">
+            <br>
+        </form>
+        <button type="button" id="addItem">Add item</button>
+        <button type="button" id="genQRCode">Generate code</button>
+        <ul id="itemlist">
+        <li><input type=checkbox checked/> Banana </li>
+        <li><input type=checkbox checked/> Pears </li>
+        <li><input type=checkbox checked/> Apples </li>
+        <li><input type=checkbox checked/> Grapes </li>
+        <li><input type=checkbox checked/> Prunes </li>
+        </ul>
+    </body>
+</html>
