@@ -8,7 +8,10 @@ window.onload = function() {
     document.getElementById('genQRCode').onclick = function(e) {
         e.preventDefault();
         var urlToEncode = JSON.stringify(shoppingcart);
-        alert(urlToEncode);
+        var finalURLforGET =
+            "https://chart.googleapis.com/chart?cht=qr&chs=64x64&chl=" + urlToEncode;
+        console.log(finalURLforGET);
+        window.location = finalURLforGET;
     }
     document.getElementById('addItem').onclick = function(e) {
         e.preventDefault();
