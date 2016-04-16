@@ -27,11 +27,14 @@ Todo:
 
 Stretch Goals:
 
-* [ ] Notifications
+* [ ] Notifications (upcoming expirations)
 * [ ] Shared Accounts (Items have owners)
-* [ ] Fix URL Length problem
-
-
+* [ ] Fix URL Length problem (QR codes only support ~4k alphabetic/numeric
+      characters. A solution would be for the grocery distributor to maintain
+      a service that logs customer purchases. Instead of encoding information
+      about the purchase inside the QR code, the QR code contains a purchase ID
+      that when scanned will ping the grocer to find the purchase from the ID
+      and forward the items to our web service.)
 
 Food
 * Name
