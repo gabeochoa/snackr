@@ -1,2 +1,2 @@
 all:
-	python game.py
+	python app.py

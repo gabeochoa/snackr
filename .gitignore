@@ -74,5 +74,4 @@ target/
 
 # Custom rules
 keys.py
-mongoconn.py
 
