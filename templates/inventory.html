@@ -10,13 +10,12 @@
     <h1>snackr</h1>
 
     {% for food in inv %}
-      <p>{{ food }}</p>
       <p>{{ food["name"]}}</p>
       <p>{{ food["image"]}}</p>
       <p>{{ food["datePurch"]}}</p>
       <p>{{ food["dateExp"]}}</p>
       <p>{{ food["stock"]}}</p>
     {% endfor %}
-    
+
 </body>
 </html>

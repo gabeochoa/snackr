@@ -11,13 +11,16 @@ loggedin = True
 def index():
     return render_template('index.html')
 
+@app.route('/add/<jason>')
+def add(jason, database = mongoconn.openDB()):
+    mongoconn.addJson(database, jason)
+    return jason
 
 @app.route('/inventory')
-def inventory(database = mongoconn.getAll(mongoconn.openDB())):
+def inventory(database = mongoconn.openDB()):
     if( not loggedin ):
         return "please log in"
-    print(database)
-    return render_template('inventory.html', inv = database)
+    return render_template('inventory.html', inv = mongoconn.getAll(database))
 
 if __name__ == '__main__':
     app.run(debug=True)
