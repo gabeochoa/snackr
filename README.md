@@ -12,7 +12,7 @@ Todo:
 * [ ] Create Sample Inv
 * [ ] Read Codes
 * [ ] Codes call API
-* [ ] Database I/O
+* [x] Database I/O
 * [ ] Add / Delete Items
 * [ ] Logged out UI
 * [ ] Logged in UI
