@@ -22,6 +22,7 @@ Stretch Goals:
 
 * [ ] Notifications
 * [ ] Shared Accounts (Items have owners)
+* [ ] Fix URL Length problem
 
 
 
