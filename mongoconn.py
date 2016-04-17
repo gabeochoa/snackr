@@ -27,7 +27,7 @@ def getAll(db):
 def addJson(db, bobj):
     obj = base64.b64decode(bobj)
     print(obj)
-    data = (json.loads(obj))[0]
-    print(data)
-    db["food"].insert_one(data)
+    for data in (json.loads(obj)):
+        db["food"].insert_one(data)
+    #print(data)   
     #print(obj)
