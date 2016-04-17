@@ -29,17 +29,12 @@ window.onload = function() {
         shoppingcart.push({name:itemname, purchased:dateofpurchase,
                            expired:dateofexpiration, amount:quantity});
         var node = document.createElement("LI");
-        var newInputCheckBox = document.createElement('input');
-        newInputCheckBox.type = 'checkbox';
-        newInputCheckBox.setAttribute('checked', 'checked');
         var nameOfItem = itemname;
-        newInputCheckBox.id = 'id' + nameOfItem;
         var newInputLabel = document.createElement('label');
         newInputLabel.innerHTML = nameOfItem + "<br>bought: " 
                                   + dateofpurchase + "<br>expiring: " +
                                   dateofexpiration + "<br>amount: " +
                                   quantity;
-        node.appendChild(newInputCheckBox);
         node.appendChild(newInputLabel);
         itemlist.appendChild(node);
     }
