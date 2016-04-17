@@ -11,7 +11,8 @@
 
     <title>snackr</title>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='assets/js/jquery.js') }}"></script>
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
 
@@ -24,7 +25,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-        <script>
+          <script>
 
         $("#btn1").click( function()
            {
