@@ -52,9 +52,10 @@ def inventory(database = mongoconn.openDB()):
 
 @app.route("/delete/<name>", methods = ['POST'])
 def delete(name, database = mongoconn.openDB()):
+    print('ey')
     if request.method == 'POST':
         data = request.form 
-    mongoconn.removeAll(database, request.form['submit'])
+    mongoconn.removeAll(database, name)
     return redirect(url_for('inventory'))
 
 @app.route('/nutrition/<name>')

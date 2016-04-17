@@ -35,8 +35,11 @@ def addJson(db, bobj):
 def removeOne(db, name):
     db["food"].delete_one({"name":name})
     return
+
 def removeAll(db, name):
-    db["food"].delete_many({"name":name})
+    print("REM ALL" + name)
+    res = db["food"].delete_many({"name":name})
+    print(res.deleted_count)
     return
 
 
