@@ -25,8 +25,8 @@ def getAll(db):
     return inv
 
 def addJson(db, bobj):
-    print("ADD JSON MONGCONN")
     obj = base64.b64decode(bobj)
+    print(obj)
     data = (json.loads(obj))[0]
     print(data)
     db["food"].insert_one(data)
