@@ -10,12 +10,16 @@
     <h1>snackr</h1>
 
     {% for food in inv %}
-      <h3>{{ food["name"] }}</h3>
-  </hr>
-      <p>{{ food["image"] }}</p>
+      <p>{{ food["name"] }}</p>
       <p>Purchased: {{ food["purchased"] }}</p>
       <p>Expires: {{ food["expired"] }}</p>
       <p>Amt Left: {{ food["amount"] }}</p>
+    {% endfor %}
+
+    {% for food in inv %}
+        <figure class="card">
+            <div class="feature">{{food["name"}}</div>
+        </figure>
     {% endfor %}
 
 </body>
