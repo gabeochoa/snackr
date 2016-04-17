@@ -8,6 +8,17 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
 import mongoconn
 
+NDID = {
+    "peppers":"11333",
+    "bread":"18064",
+    "carrots":"11124",
+    "broccoli":"11741",
+    "grapes":"09132",
+    "cookies":"28027",
+    "watermelon":"09326",
+    "avocado":"09038"
+}
+
 loggedin = True
 
 @app.route('/')
@@ -24,16 +35,32 @@ def inventory(database = mongoconn.openDB()):
     if( not loggedin ):
         return "please log in"
     inv = mongoconn.getAll(database)
-    print(inv)
+    #print(inv)
     #print(inv[0])
-    #for( item in inv ):
+    # nutri = []
+    # for item in inv:
+    #     aa = urllib.urlretrieve("http://api.nal.usda.gov/ndb/reports/?ndbno=" + NDID[item["name"]] +"&type=f&format=json&api_key=xoNloOitF8uXEhuREu11T7y64Lz1tntsZGHcZwPs")
+    #     nutri.append(aa)
 
     #http://api.nal.usda.gov/ndb/reports/?ndbno={{ food['NDID']}}&type=f&format=json&api_key=xoNloOitF8uXEhuREu11T7y64Lz1tntsZGHcZwPs
-    #urllib.urlretrieve("http://api.nal.usda.gov/ndb/reports/?ndbno=" +  +"&type=f&format=json&api_key=xoNloOitF8uXEhuREu11T7y64Lz1tntsZGHcZwPs")
+    #
+    return render_template('inventory.html', inv = inv)#, nutri = nutri)
 
-    return "ss"
-    #return render_template('inventory.html', inv = inv)
+
+
+
+
+
+
+
+
+
+
+
+
 
 port = int(os.environ.get('PORT', 5000))
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='0.0.0.0', debug=True,port=port)
+
+

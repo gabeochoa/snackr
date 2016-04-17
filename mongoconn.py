@@ -31,3 +31,24 @@ def addJson(db, bobj):
         db["food"].insert_one(data)
     #print(data)   
     #print(obj)
+
+def removeOne(db, name):
+    db["food"].delete_one({"name":name})
+    return
+def removeAll(db, name):
+    db["food"].delete_many({"name":name})
+    return
+
+
+
+
+
+
+
+
+
+
+
+
+
+

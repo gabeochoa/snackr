@@ -9,8 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Thumbnail Gallery - Start Bootstrap Template</title>
+    <title>snackr</title>
 
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
 
@@ -23,7 +24,14 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+        <script>
 
+        $("#btn1").click( function()
+           {
+             alert('button clicked');
+           }
+        );
+    </script>
 </head>
 
 <body>
@@ -39,8 +47,10 @@
             {% for food in inv %}
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <a class="thumbnail" href="#">
-                        <p>{{food["amount"]}} {{ food["name"]}}</p>
-                        <img class="img-responsive" src="static/assets/img/rsz_{{ food["name"]}}.jpg" alt="">
+                        <p>{{ food["amount"] }} {{ food["name"]}}</p>
+                        <button type="button" id="btn1" class="btn btn-warning">Remove 1</button>
+                        <button type="button" id="btnall" class="btn btn-danger">Remove All</button>
+                        <img class="img-responsive" src="static/assets/img/rsz_{{ food["name"] }}.jpg" alt="">
                     </a>
                 </div>
             {% endfor %}  
@@ -50,33 +60,3 @@
 </body>
 
 </html>
-
-
-<!-- 
-<!DOCTYPE HTML>
-<html>
-<head>
-    {%include 'head.html' %}
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='assets/js/moment.js') }}"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
-</head>
-<body>
-    <h1>snackr</h1>
-
-    {% for food in inv %}
-      <p>{{ food["name"] }}</p>
-      <p>Purchased: {{ food["purchased"] }}</p>
-      <p>Expires: {{ food["expired"] }}</p>
-      <p>Amt Left: {{ food["amount"] }}</p>
-    {% endfor %}
-
-    {% for food in inv %}
-        <figure class="card">
-            <div class="feature">{{food["name"}}</div>
-        </figure>
-    {% endfor %}
-
-</body>
-</html>
--->
