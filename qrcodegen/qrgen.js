@@ -16,25 +16,17 @@ window.onload = function() {
     document.getElementById('addItem').onclick = function(e) {
         e.preventDefault();
         var itemname = document.getElementById('itemname').value;
-        var dateofpurchase = document.getElementById('dateofpurchase').value;
-        var dateofexpiration = document.getElementById('dateofexpiration').value;
         var quantity = document.getElementById('quantity').value;
         if (itemname == '' ||
-            dateofpurchase == '' ||
-            dateofexpiration == '' ||
             quantity == '') {
             alert("All fields required.");
             return;
         }
-        shoppingcart.push({name:itemname, purchased:dateofpurchase,
-                           expired:dateofexpiration, amount:quantity});
+        shoppingcart.push({name:itemname, amount:quantity});
         var node = document.createElement("LI");
         var nameOfItem = itemname;
         var newInputLabel = document.createElement('label');
-        newInputLabel.innerHTML = nameOfItem + "<br>bought: " 
-                                  + dateofpurchase + "<br>expiring: " +
-                                  dateofexpiration + "<br>amount: " +
-                                  quantity;
+        newInputLabel.innerHTML = nameOfItem + "<br>amount: " + quantity;
         node.appendChild(newInputLabel);
         itemlist.appendChild(node);
     }
