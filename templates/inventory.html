@@ -11,10 +11,15 @@
 
     {% for food in inv %}
       <p>{{ food["name"] }}</p>
-      <p>{{ food["image"] }}</p>
       <p>Purchased: {{ food["purchased"] }}</p>
       <p>Expires: {{ food["expired"] }}</p>
       <p>Amt Left: {{ food["amount"] }}</p>
+    {% endfor %}
+
+    {% for food in inv %}
+        <figure class="card">
+            <div class="feature">{{food["name"}}</div>
+        </figure>
     {% endfor %}
 
 </body>

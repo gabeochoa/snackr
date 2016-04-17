@@ -1,3 +1,18 @@
 form#chat {
     display: none;
 }
+
+.card {
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: 15%;
+    height: 128px;
+    min-width: 128px;
+    min-height: 128px;
+    background-color: #FFFF00;
+    padding-top:30px;
+    padding-right:30px;
+    padding-left:30px;
+    padding-bottom:30px;
+}
