@@ -3,10 +3,13 @@ from flask import Flask, render_template, session, request, redirect, url_for
 import os
 import urllib
 import base64
+from urllib2 import Request, urlopen, URLError
+import mongoconn 
+import json 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
-import mongoconn
+
 
 NDID = {
     "peppers":"11333",
@@ -54,17 +57,38 @@ def delete(name, database = mongoconn.openDB()):
     mongoconn.removeAll(database, request.form['submit'])
     return redirect(url_for('inventory'))
 
-
-
-
-
-
-
-
+@app.route('/nutrition/<name>')
+def nutrition(name):
+    apiurl = "http://api.nal.usda.gov/ndb/reports/?ndbno=" + NDID[name] +"&type=f&format=json&api_key=xoNloOitF8uXEhuREu11T7y64Lz1tntsZGHcZwPs"
+    request = Request(apiurl)
+    stats = []
+    try:
+        response = urlopen(request)
+        jj = response.read()
+        jsonout = json.loads(jj)
+        stats.append(jsonout["report"]["food"]["name"])#get name
+        for nut in jsonout["report"]["food"]["nutrients"]:
+            if(nut["name"] in ["Energy", "Protien", "Total lipid (fat)"]):
+                stats.append( str(nut["value"]) + " " + nut["unit"])
+    except URLError, e:
+        print 'Got an error code:', e
+    return render_template('nutrients.html', name = name, stats = stats)
 
 
 port = int(os.environ.get('PORT', 5000))
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True,port=port)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
