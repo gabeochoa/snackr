@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask, render_template, session, request
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
@@ -24,5 +25,6 @@ def inventory(database = mongoconn.openDB()):
     print(inv)
     return render_template('inventory.html', inv = inv)
 
+port = int(os.environ.get('PORT', 5000))
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port)
