@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, redirect, url_for
 import os
 import urllib
 import base64
@@ -47,10 +47,12 @@ def inventory(database = mongoconn.openDB()):
     return render_template('inventory.html', inv = inv)#, nutri = nutri)
 
 
-@app.route("/delete/<name>/", methods = ['POST'])
+@app.route("/delete/<name>", methods = ['POST'])
 def delete(name, database = mongoconn.openDB()):
-    mongoconn.removeAll(database, name)
-    return inventory()
+    if request.method == 'POST':
+        data = request.form 
+    mongoconn.removeAll(database, request.form['submit'])
+    return redirect(url_for('inventory'))
 
 
 
