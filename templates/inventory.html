@@ -10,7 +10,8 @@
     <h1>snackr</h1>
 
     {% for food in inv %}
-      <p>{{ food["name"] }}</p>
+      <h3>{{ food["name"] }}</h3>
+  </hr>
       <p>{{ food["image"] }}</p>
       <p>Purchased: {{ food["purchased"] }}</p>
       <p>Expires: {{ food["expired"] }}</p>
