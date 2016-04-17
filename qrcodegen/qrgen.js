@@ -7,7 +7,7 @@ window.onload = function() {
     if (itemlist == null) { alert('itemlist is null'); }
     document.getElementById('genQRCode').onclick = function(e) {
         e.preventDefault();
-        var urlToEncode = JSON.stringify(shoppingcart);
+        var urlToEncode = "https://snackr.herokuapp.com/add/" + btoa(JSON.stringify(shoppingcart));
         var finalURLforGET =
             "https://chart.googleapis.com/chart?cht=qr&chs=64x64&chl=" + urlToEncode;
         console.log(finalURLforGET);
