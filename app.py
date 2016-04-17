@@ -14,6 +14,7 @@ def index():
 
 @app.route('/add/<jason>')
 def add(jason, database = mongoconn.openDB()):
+    print("ROUTE ADD JSON")
     mongoconn.addJson(database, jason)
     return jason
 
