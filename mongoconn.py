@@ -5,7 +5,11 @@ import json
 import bson 
 
 def mongoconn():
-    connection = MongoClient(WRITE_MONGO_URL)
+    try:
+        connection = MongoClient(WRITE_MONGO_URL)
+    except:
+        print("COULD NOT AUTHENTICATE")
+        return None
     db = connection.get_default_database()
     print db.collection_names()
     return db#['collection']
