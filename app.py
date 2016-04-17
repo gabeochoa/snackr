@@ -47,8 +47,10 @@ def inventory(database = mongoconn.openDB()):
     return render_template('inventory.html', inv = inv)#, nutri = nutri)
 
 
-
-
+@app.route("/delete/<name>/", methods = ['POST'])
+def delete(name, database = mongoconn.openDB()):
+    mongoconn.removeAll(database, name)
+    return inventory()
 
 
 
